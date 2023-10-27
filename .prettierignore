@@ -1,0 +1,16 @@
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/coverage
+package-lock.json
+
+# Dependencies
+/node_modules
+
+# Editor files
+.history
+
+# Ignore filetype
+*.html
+*.yml
