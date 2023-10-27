@@ -3,8 +3,10 @@ import { createReducer, on } from '@ngrx/store';
 import { LocationActions, WeatherActions } from './weather.actions';
 import { WeatherState } from 'src/app/models/weather.models';
 
+export const weatherFeatureKey = 'weather';
+
 // todo add status changes
-const initialState: WeatherState = {
+export const initialState: WeatherState = {
     location: '',
     selectedLocation: {},
     locationList: [],
@@ -47,5 +49,3 @@ export const weatherReducer = createReducer(
   
 
 );
-
-

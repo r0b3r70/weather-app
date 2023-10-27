@@ -19,7 +19,6 @@ export class WeatherEffects {
         );
     });
 
-
     loadWeather$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(LocationActions.selected),
@@ -31,10 +30,6 @@ export class WeatherEffects {
             ),
         );
     });
-
-
-
-
 
     constructor(
         private actions$: Actions,
