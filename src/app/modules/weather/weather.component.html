@@ -1,0 +1,27 @@
+<form>
+    <input type="text" name="location" [(ngModel)]="locationInput" >
+    <button (click)="searchLocation()">searchLocation</button>
+</form>
+
+<div *ngFor="let location of locationList$ | async">
+    <button 
+        (click)="setLocation({lat: location.lat, lon: location.lon})">
+        {{location.name}}, {{location.state}} -  {{location.country}}
+    </button>
+</div>
+
+<hr>
+
+<button (click)="setLocation()">setLocation</button>
+<button (click)="clearLocation()">clearLocation</button>
+
+
+
+
+<app-weather-today [weatherToday]="weatherToday$ | async"></app-weather-today>
+<!-- <app-weather-forecast [weatherForecast]="weather$"></app-weather-forecast> -->
+
+
+<pre>
+    {{weatherStore$ | async | json}}
+</pre>

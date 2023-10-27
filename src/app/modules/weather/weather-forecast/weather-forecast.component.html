@@ -1,0 +1,26 @@
+<p>weather-forecast works!</p>
+
+<div *ngIf="weatherForecast?.forecastWeather?.list as weather; else LOADING">
+
+    <ng-container *ngIf="weather.length; else EMPTY">
+        <!-- <pre>{{weather | json}}</pre> -->
+
+        <div *ngFor="let item of weather;">
+            {{item.dt*1000 | date:'EEEE d/M'}} -> 
+            {{item.temp.day | number: '1.0-0'}}
+            ({{item.temp.min | number: '1.0-0'  }} - {{item.temp.max | number: '1.0-0' }})
+        </div>
+
+    </ng-container>
+    
+
+</div>
+
+
+<ng-template #LOADING>
+    Loading...
+</ng-template>
+
+<ng-template #EMPTY>
+    No Forecast 
+</ng-template>
