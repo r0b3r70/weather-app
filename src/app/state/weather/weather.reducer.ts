@@ -8,7 +8,7 @@ export const weatherFeatureKey = 'weather';
 
 // todo add status changes
 export const initialState: WeatherState = {
-    location: '',
+    locationSearch: '',
     selectedLocation: {},
     locationList: [],
     weather: {},
@@ -25,18 +25,18 @@ export const weatherReducer = createReducer(
     status: 'idle',
   })),
 
-  on(LocationActions.clear, ():WeatherState => ({
-    location: '',
-    locationList: [],
-    selectedLocation: {},
-    weather: {},
+  on(LocationActions.searchRequestSuccess , (state, { response }):WeatherState => ({
+    ...state,
+    locationList: response,
     error: '',
     status: 'idle',
   })),
 
-  on(LocationActions.searchRequestSuccess , (state, { response }):WeatherState => ({
-    ...state,
-    locationList: response,
+  on(LocationActions.clear, ():WeatherState => ({
+    locationSearch: '',
+    locationList: [],
+    selectedLocation: {},
+    weather: {},
     error: '',
     status: 'idle',
   })),
@@ -61,7 +61,6 @@ export const weatherReducer = createReducer(
     status: 'idle',
   })),  
   
-
 );
 
 const mapToWeatherData = (response: CurrentWeatherAPIResponse): Partial<WeatherData> => {

@@ -10,7 +10,7 @@ describe('Weather Selectors', () => {
     });
 
     expect(result).toEqual({
-        location: '',
+        locationSearch: '',
         selectedLocation: {},
         locationList: [],
         weather: {},

@@ -11,30 +11,13 @@ export interface GeoLocation {
 
 
 export interface WeatherState {
-    location: string;                       // ToDo: rename to search string
+    locationSearch: string;                 // String from search input
     selectedLocation: GeoLocation;          // One, mapped response from locationList[]
     locationList: GeoAPIResponse[];         // API response from GeoDB with list of locations
     weather: WeatherData;                   // Mapped data
     error: string;                          // error message from API
-    status: 'idle' | 'loading' | 'error';
+    status: 'idle' | 'loading' | 'error';   // status of API call
 }
-
-// export interface CurrentWeather {
-//     weather: {
-//         id: number;
-//         main: string;
-//         description: string;
-//         icon: string;
-//     }[];
-//     main: {
-//         temp: number;
-//         feels_like: number;
-//         temp_min: number;
-//         temp_max: number;
-//         pressure: number;
-//         humidity: number;
-//     };
-// }
 
 export interface WeatherData {
 

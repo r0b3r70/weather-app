@@ -13,7 +13,7 @@ import { GeoLocation } from 'src/app/models/weather.models';
   styleUrls: ['./weather.component.scss']
 })
 export class WeatherComponent {
-  public locationInput = '';
+  public locationSearch = '';
   public weatherStore$ = this.store.select(selectWeather);
   public locationList$ = this.store.select(selectLocationList);
   public weatherToday$ = this.store.select(selectWeatherToday);
@@ -21,8 +21,8 @@ export class WeatherComponent {
   constructor(private readonly weatherService: WeatherService, private readonly store: Store) {}
 
   searchLocation() {
-    if(this.locationInput !== '') {
-      this.store.dispatch(LocationActions.searchRequested({ name: this.locationInput }));
+    if(this.locationSearch !== '') {
+      this.store.dispatch(LocationActions.searchRequested({ name: this.locationSearch }));
     }
   }
 
@@ -36,7 +36,7 @@ export class WeatherComponent {
   
 
   // tslint:disable-next-line: no-any
-  public weather$: Observable<any> = this.weatherService.getGeoLocation$(this.locationInput).pipe(
+  public weather$: Observable<any> = this.weatherService.getGeoLocation$(this.locationSearch).pipe(
     mergeMap((location: GeoAPIResponse[]) => {
         const setLocation = location[0];
         return combineLatest([
