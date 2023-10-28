@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
-import { WeatherService } from './weather.service';
-import { Observable, combineLatest, map, mergeMap } from 'rxjs';
-import { CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, GeoAPIResponse } from '../../models/api.models';
 import { Store } from '@ngrx/store';
-import { LocationActions } from 'src/app/state/weather/weather.actions';
-import { selectLocationList, selectWeather, selectWeatherToday } from 'src/app/state/weather/weather.selectors';
-import { GeoLocation } from 'src/app/models/weather.models';
+import { LocationActions, selectLocationList, selectWeatherCurrent, selectWeatherForecast } from 'src/app/state/weather';
+import { GeoLocation } from 'src/app/models';
 
 @Component({
   selector: 'app-weather',

@@ -1,8 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-
 import { LocationActions, WeatherActions } from './weather.actions';
-import { WeatherData, WeatherState } from 'src/app/models/weather.models';
-import { CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, ForecastWeatherDayAPIResponse } from 'src/app/models/api.models';
+import { WeatherData, WeatherState, CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, ForecastWeatherDayAPIResponse } from 'src/app/models';
 
 export const weatherFeatureKey = 'weather';
 

@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { WeatherState } from 'src/app/models/weather.models';
+import { WeatherState } from 'src/app/models';
 import { weatherFeatureKey } from './weather.reducer';
 
 export const selectWeather = createFeatureSelector<WeatherState>(weatherFeatureKey);

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, GeoAPIResponse } from '../../models/api.models';
+import { CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, GeoAPIResponse } from 'src/app/models';
 import { Observable } from 'rxjs';
-import { GeoLocation } from 'src/app/models/weather.models';
+import { GeoLocation } from 'src/app/models';
 
 enum Units {
     metric = 'metric',

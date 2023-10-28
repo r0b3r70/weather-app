@@ -1,6 +1,5 @@
 import { createActionGroup, emptyProps, props } from '@ngrx/store';
-import { CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, GeoAPIResponse } from 'src/app/models/api.models';
-import { GeoLocation } from 'src/app/models/weather.models';
+import { GeoLocation, CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, GeoAPIResponse } from 'src/app/models';
 
 export const LocationActions = createActionGroup({
   source: 'Location',
