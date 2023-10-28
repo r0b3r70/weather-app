@@ -43,8 +43,8 @@ export class WeatherComponent {
             this.weatherService.getCurrentWeatherByLocation$(setLocation),
             this.weatherService.getForecastByLocation$(setLocation),
         ]).pipe(
-            map(([currentWeather, forecastWeather]: [CurrentWeatherAPIResponse, ForecastWeatherAPIResponse[]]) => {
-                return { currentWeather, forecastWeather };
+            map(([current, forecast]: [CurrentWeatherAPIResponse, ForecastWeatherAPIResponse]) => {
+                return { current, forecast };
             }),
         );
     }

@@ -12,7 +12,7 @@ export class WeatherEffects {
             ofType(LocationActions.searchRequested),
             exhaustMap((action) =>
                 this.weatherService.getGeoLocation$(action.name).pipe(
-                    map((locations) => LocationActions.searchRequestSuccess({ locations })),
+                    map((response) => LocationActions.searchRequestSuccess({ response })),
                     catchError((error) => of(LocationActions.searchRequestFailure({ error }))),
                 ),
             ),
@@ -23,10 +23,22 @@ export class WeatherEffects {
         return this.actions$.pipe(
             ofType(LocationActions.selected),
             exhaustMap((action) => 
-            this.weatherService.getCurrentWeatherByLocation$(action.selectedLocation).pipe(
-                map((response) => WeatherActions.currentWeatherRequestSuccess({ weather: response })),
-                catchError((error) => of(LocationActions.searchRequestFailure({ error }))),
+                this.weatherService.getCurrentWeatherByLocation$(action.selectedLocation).pipe(
+                    map((response) => WeatherActions.currentWeatherRequestSuccess({ response })),
+                    catchError((error) => of(WeatherActions.currentWeatherRequestFailure({ error }))),
+                ),             
             ),
+        );
+    });
+
+    loadWeatherForecast$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(LocationActions.selected),
+            exhaustMap((action) => 
+                this.weatherService.getForecastByLocation$(action.selectedLocation).pipe(
+                    map((response) => WeatherActions.forecastWeatherRequestSuccess({ response })),
+                    catchError((error) => of(WeatherActions.currentWeatherRequestFailure({ error }))),
+                ),                
             ),
         );
     });
