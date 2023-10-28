@@ -1,21 +1,14 @@
 import * as fromWeather from './weather.reducer';
-import { selectWeather } from './weather.selectors';
+import { selectWeatherCurrent } from './weather.selectors';
 
 describe('Weather Selectors', () => {
   it('should select the feature state', () => {
-    const result = selectWeather({
+    const result = selectWeatherCurrent({
       [fromWeather.weatherFeatureKey]: {
         ...fromWeather.initialState,
       }
     });
 
-    expect(result).toEqual({
-        locationSearch: '',
-        selectedLocation: {},
-        locationList: [],
-        weather: {},
-        error: '',
-        status: 'idle',        
-    });
+    expect(result).toEqual(undefined);
   });
 });

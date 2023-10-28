@@ -12,16 +12,11 @@
 
 <hr>
 
-<button (click)="setLocation()">setLocation</button>
-<button (click)="clearLocation()">clearLocation</button>
+
+<app-weather-today [weather]="weatherCurrent$ | async"></app-weather-today>
+<app-weather-forecast [weatherForecast]="weatherForecast$ | async"></app-weather-forecast>
 
 
-
-
-<app-weather-today [weatherToday]="weatherToday$ | async"></app-weather-today>
-<!-- <app-weather-forecast [weatherForecast]="weather$"></app-weather-forecast> -->
-
-
-<pre>
+<!-- <pre>
     {{weatherStore$ | async | json}}
-</pre>
+</pre> -->

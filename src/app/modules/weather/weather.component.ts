@@ -10,11 +10,11 @@ import { GeoLocation } from 'src/app/models';
 })
 export class WeatherComponent {
   public locationSearch = '';
-  public weatherStore$ = this.store.select(selectWeather);
   public locationList$ = this.store.select(selectLocationList);
-  public weatherToday$ = this.store.select(selectWeatherToday);
+  public weatherCurrent$ = this.store.select(selectWeatherCurrent);
+  public weatherForecast$ = this.store.select(selectWeatherForecast);
 
-  constructor(private readonly weatherService: WeatherService, private readonly store: Store) {}
+  constructor(private readonly store: Store) {}
 
   searchLocation() {
     if(this.locationSearch !== '') {
@@ -22,28 +22,8 @@ export class WeatherComponent {
     }
   }
 
-  setLocation(location: GeoLocation = { lat: 90.0000, lon: 0.0000 }) {
+  setLocation(location: GeoLocation) {
     this.store.dispatch(LocationActions.selected({ selectedLocation: location} )); 
   }
-
-  clearLocation() {
-    this.store.dispatch(LocationActions.clear());
-  }
-  
-
-  // tslint:disable-next-line: no-any
-  public weather$: Observable<any> = this.weatherService.getGeoLocation$(this.locationSearch).pipe(
-    mergeMap((location: GeoAPIResponse[]) => {
-        const setLocation = location[0];
-        return combineLatest([
-            this.weatherService.getCurrentWeatherByLocation$(setLocation),
-            this.weatherService.getForecastByLocation$(setLocation),
-        ]).pipe(
-            map(([current, forecast]: [CurrentWeatherAPIResponse, ForecastWeatherAPIResponse]) => {
-                return { current, forecast };
-            }),
-        );
-    }
-  ));
 
 }

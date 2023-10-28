@@ -16,11 +16,10 @@ export const initialState: WeatherState = {
 
 export const weatherReducer = createReducer(
   initialState,
-  on(LocationActions.selected, (state, { selectedLocation }):WeatherState => ({
-    ...state,
-    selectedLocation: selectedLocation,
-    error: '',
-    status: 'idle',
+  on(LocationActions.searchRequested , (state, { name }):WeatherState => ({
+    ...initialState,
+    locationSearch: name,
+    status: 'loading',
   })),
 
   on(LocationActions.searchRequestSuccess , (state, { response }):WeatherState => ({
@@ -30,13 +29,19 @@ export const weatherReducer = createReducer(
     status: 'idle',
   })),
 
-  on(LocationActions.clear, ():WeatherState => ({
-    locationSearch: '',
-    locationList: [],
-    selectedLocation: {},
-    weather: {},
-    error: '',
-    status: 'idle',
+  on(LocationActions.searchRequestFailure , (state ):WeatherState => ({
+    ...state,
+    status: 'error',
+  })),
+
+  on(LocationActions.selected, (state, { selectedLocation }):WeatherState => ({
+    ...initialState,
+    selectedLocation: selectedLocation,
+  })),
+
+  on(WeatherActions.currentWeatherRequested , (state):WeatherState => ({
+    ...state,
+    status: 'loading',
   })),
 
   on(WeatherActions.currentWeatherRequestSuccess, (state, { response }):WeatherState => ({
@@ -47,6 +52,11 @@ export const weatherReducer = createReducer(
     },
     error: '',
     status: 'idle',
+  })),
+
+  on(WeatherActions.forecastWeatherRequested , (state):WeatherState => ({
+    ...state,
+    status: 'loading',
   })),
 
   on(WeatherActions.forecastWeatherRequestSuccess, (state, { response }):WeatherState => ({

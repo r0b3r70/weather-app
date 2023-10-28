@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { WeatherDataCurrent } from 'src/app/models';
 
 @Component({
   selector: 'app-weather-today',
@@ -7,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class WeatherTodayComponent {
 
-  @Input() weatherToday: any;
+  @Input() weather?: WeatherDataCurrent | null;
   
 
 }

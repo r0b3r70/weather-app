@@ -20,21 +20,23 @@ export interface WeatherState {
 }
 
 export interface WeatherData {
+    current?: WeatherDataCurrent;
+    forecast?: WeatherDataForecast[];
+}
 
-    current?: {
-        description: string; //weather.description
-        temp: number;       // main.temp
-        temp_min: number;   // main.temp_min
-        temp_max: number;   // main.temp_max
-        wind: number;       // wind.speed
-    };
-    
-    forecast?: {       // list->
-        dt: number;          // dt
-        temp: number;        // temp.day
-        temp_min: number;    // temp.min
-        temp_max: number;    // temp.max
-        description: string; // weather.description
-        wind: number;        // speed
-    }[];
+export interface WeatherDataCurrent {
+    description: string; //weather.description
+    temp: number;       // main.temp
+    temp_min: number;   // main.temp_min
+    temp_max: number;   // main.temp_max
+    wind: number;       // wind.speed
+}
+
+export interface WeatherDataForecast {       
+    dt: number;          // dt
+    temp: number;        // temp.day
+    temp_min: number;    // temp.min
+    temp_max: number;    // temp.max
+    description: string; // weather.description
+    wind: number;        // speed
 }

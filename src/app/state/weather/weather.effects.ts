@@ -19,11 +19,26 @@ export class WeatherEffects {
         );
     });
 
-    loadWeather$ = createEffect(() => {
+    locationForCurrentWeatherSelected$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(LocationActions.selected),
+            map((action) => WeatherActions.currentWeatherRequested({ location: action.selectedLocation })),
+        );
+    });
+
+    locationForForecastWeatherSelected$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(LocationActions.selected),
+            map((action) => WeatherActions.forecastWeatherRequested({ location: action.selectedLocation })),
+        );
+    });
+
+    // todo: rename 
+    loadCurrentWeather$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(WeatherActions.currentWeatherRequested),
             exhaustMap((action) => 
-                this.weatherService.getCurrentWeatherByLocation$(action.selectedLocation).pipe(
+                this.weatherService.getCurrentWeatherByLocation$(action.location).pipe(
                     map((response) => WeatherActions.currentWeatherRequestSuccess({ response })),
                     catchError((error) => of(WeatherActions.currentWeatherRequestFailure({ error }))),
                 ),             
@@ -33,9 +48,9 @@ export class WeatherEffects {
 
     loadWeatherForecast$ = createEffect(() => {
         return this.actions$.pipe(
-            ofType(LocationActions.selected),
+            ofType(WeatherActions.forecastWeatherRequested),
             exhaustMap((action) => 
-                this.weatherService.getForecastByLocation$(action.selectedLocation).pipe(
+                this.weatherService.getForecastByLocation$(action.location).pipe(
                     map((response) => WeatherActions.forecastWeatherRequestSuccess({ response })),
                     catchError((error) => of(WeatherActions.currentWeatherRequestFailure({ error }))),
                 ),                
