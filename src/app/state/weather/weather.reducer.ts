@@ -92,6 +92,7 @@ const mapToWeatherData = (response: CurrentWeatherAPIResponse): Partial<WeatherD
           temp_min: response.main.temp_min,
           temp_max: response.main.temp_max,
           wind: response.wind.speed,
+          icon: response.weather[0].icon,
       },
   };
 }
@@ -104,6 +105,7 @@ const mapToForecastData = (res: ForecastWeatherAPIResponse): Partial<WeatherData
             temp_min: day.temp.min,
             temp_max: day.temp.max,
             description: day.weather[0].description,
+            icon: day.weather[0].icon,
             wind: day.speed,
         })),
     };

@@ -25,7 +25,8 @@ export interface WeatherData {
 }
 
 export interface WeatherDataCurrent {
-    description: string; //weather.description
+    description: string; // weather.description
+    icon: string;        // weather.icon
     temp: number;       // main.temp
     temp_min: number;   // main.temp_min
     temp_max: number;   // main.temp_max
@@ -38,5 +39,6 @@ export interface WeatherDataForecast {
     temp_min: number;    // temp.min
     temp_max: number;    // temp.max
     description: string; // weather.description
+    icon: string;        // weather.icon
     wind: number;        // speed
 }

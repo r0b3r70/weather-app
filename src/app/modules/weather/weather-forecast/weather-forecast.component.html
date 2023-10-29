@@ -7,6 +7,7 @@
         <div *ngFor="let day of weather;">
             {{day.dt*1000 | date:'EEEE d/M'}} -> 
             {{day.description | titlecase}}
+            <img [src]="'http://openweathermap.org/img/w/' + day.icon + '.png'"  alt="{{day.description}}"/>
             Temperature: 
             {{day.temp | number: '1.0-0'}}&#8451;
             ({{day.temp_min | number: '1.0-0'  }}&#8451; - {{day.temp_max | number: '1.0-0' }}&#8451;)
