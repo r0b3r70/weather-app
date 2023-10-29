@@ -29,8 +29,9 @@ export const weatherReducer = createReducer(
     status: 'idle',
   })),
 
-  on(LocationActions.searchRequestFailure , (state ):WeatherState => ({
+  on(LocationActions.searchRequestFailure , (state, { error } ):WeatherState => ({
     ...state,
+    error: error,
     status: 'error',
   })),
 
@@ -54,6 +55,12 @@ export const weatherReducer = createReducer(
     status: 'idle',
   })),
 
+  on(WeatherActions.currentWeatherRequestFailure , (state, { error } ):WeatherState => ({
+    ...state,
+    error: error,
+    status: 'error',
+  })),
+
   on(WeatherActions.forecastWeatherRequested , (state):WeatherState => ({
     ...state,
     status: 'loading',
@@ -67,7 +74,13 @@ export const weatherReducer = createReducer(
     },
     error: '',
     status: 'idle',
-  })),  
+  })),
+
+  on(WeatherActions.forecastWeatherRequestFailure , (state, { error } ):WeatherState => ({
+    ...state,
+    error: error,
+    status: 'error',
+  })),
   
 );
 

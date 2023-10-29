@@ -1,4 +1,4 @@
-import { CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, GeoAPIResponse } from "../models/api.models";
+import { WeatherState, CurrentWeatherAPIResponse, ForecastWeatherAPIResponse, GeoAPIResponse } from "../models";
 
 export const getGeoLocationMock: GeoAPIResponse[] = [
     {
@@ -365,4 +365,63 @@ export const getCurrentWeatherMock: CurrentWeatherAPIResponse = {
     id: 2759794,
     name: "Amsterdam",
     cod: 200
+};
+
+export const getWeatherStateMock: WeatherState = {
+    locationSearch: '',
+    selectedLocation: {},
+    locationList: [],
+    weather: {
+        current: {
+            description: 'light rain',
+            temp: 10.11,
+            temp_min: 9.38,
+            temp_max: 10.6,
+            wind: 5.14,
+        },
+        forecast: [
+            {
+                dt: 1698231600,
+                temp: 11.16,
+                temp_min: 8.07,
+                temp_max: 11.27,
+                description: 'light rain',
+                wind: 4.37,
+            },
+            {
+                dt: 1698318000,
+                temp: 11.7,
+                temp_min: 7.84,
+                temp_max: 12.2,
+                description: 'moderate rain',
+                wind: 4.04,
+            },
+            {
+                dt: 1698404400,
+                temp: 10.94,
+                temp_min: 9.47,
+                temp_max: 11.07,
+                description: 'heavy intensity rain',
+                wind: 4.81,
+            },
+            {
+                dt: 1698490800,
+                temp: 11.35,
+                temp_min: 8.96,
+                temp_max: 11.64,
+                description: 'moderate rain',
+                wind: 7.67,
+            },
+            {
+                dt: 1698577200,
+                temp: 13.42,
+                temp_min: 9.89,
+                temp_max: 13.42,
+                description: 'moderate rain',
+                wind: 7.14,
+            },
+        ],
+    },
+    error: '',
+    status: 'idle'
 };
