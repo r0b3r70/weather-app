@@ -29,9 +29,6 @@
     padding: 10px 20px;
 
     h1 {
-        font:
-            500 20px Roboto,
-            'Helvetica Neue',
-            sans-serif;
+        font: 500 20px $header-font-family;
     }
 }

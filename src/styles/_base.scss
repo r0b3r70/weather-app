@@ -6,3 +6,11 @@ html {
     margin: 0;
     padding: 0;
 }
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+}

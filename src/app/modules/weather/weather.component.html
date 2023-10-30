@@ -1,28 +1,36 @@
 <div class="component-container">
 
-<div class="weather-container">
-    <div class="search-container">
+    <div class="weather-container">
+        <div class="search-container">
 
-        <form class="search-form">
+            <form class="search-form">
 
-            <input type="search" placeholder="City, Country" aria-label="Search" list="results" name="location" [(ngModel)]="locationSearch" >
-            
-            <button (click)="searchLocation()" type="submit" class="search-button">Search</button>
+                <input type="search" placeholder="City, Country" aria-label="Search" list="results" name="location"
+                    [(ngModel)]="locationSearch">
 
-            <ng-container *ngIf="locationList$ | async as locations">
-            <div class="select-list" *ngIf="locations.length">
-                <div class="select-list-option" id="results" *ngFor="let location of locations" >
-                    <button (click)="setLocation({lat: location.lat, lon: location.lon})">
-                        {{location.name}}, {{location.state}} -  {{location.country}}
-                    </button>
+                <button (click)="searchLocation()" type="submit" class="search-button">Search</button>
+
+                <ng-container *ngIf="locationList$ | async as locations">
+                    <div class="select-list" *ngIf="locations.length">
+                        <div class="select-list-option" id="results" *ngFor="let location of locations">
+                            <button (click)="setLocation({lat: location.lat, lon: location.lon})">
+                                {{location.name}}, {{location.state}} - {{location.country}}
+                            </button>
+                        </div>
+                    </div>
+                </ng-container>
+            </form>
+
+            <div class="row main">
+                <div class="column">
+                    <app-weather-today [weather]="weatherCurrent$ | async"></app-weather-today>
+
+                </div>
+                <div class="column">
+                    &nbsp;
                 </div>
             </div>
-            </ng-container>
-        </form>
+            <app-weather-forecast [weatherForecast]="weatherForecast$ | async"></app-weather-forecast>
 
-
-        <app-weather-today [weather]="weatherCurrent$ | async"></app-weather-today>
-        <app-weather-forecast [weatherForecast]="weatherForecast$ | async"></app-weather-forecast>
-
+        </div>
     </div>
-</div>

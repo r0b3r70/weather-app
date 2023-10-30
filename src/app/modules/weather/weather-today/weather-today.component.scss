@@ -1,0 +1,40 @@
+@import 'variables';
+
+.location, .description {
+    font-family: $header-font-family;
+}
+
+.location {
+    font-size: 26px;
+    font-weight: 300;
+    padding-bottom: 10px;
+}
+.description {
+    font-size: 18px;
+    padding-bottom: 20px;
+}
+.today-details {
+    padding: 20px 0;
+    font-weight: 300;
+}
+
+.temp {
+    padding: 20px 0;
+    font-size: 28px;
+    font-weight: 300;
+    display: inline-block;
+
+    &-large {
+        font-size: 60px;
+        display: inline-block;
+    }
+    &-normal {
+        vertical-align: top;
+        display: inline-block;
+    }
+}
+
+
+.today {
+    display: flex;
+}

@@ -1,26 +1,24 @@
-<p>weather-forecast works!</p>
-
 <ng-container *ngIf="weatherForecast as weather;">
 
-    <ng-container *ngIf="weather.length; else EMPTY">
-        
-        <div *ngFor="let day of weather;">
-            {{day.dt*1000 | date:'EEEE d/M'}} -> 
-            {{day.description | titlecase}}
-            <img [src]="'http://openweathermap.org/img/w/' + day.icon + '.png'"  alt="{{day.description}}"/>
-            Temperature: 
-            {{day.temp | number: '1.0-0'}}&#8451;
-            ({{day.temp_min | number: '1.0-0'  }}&#8451; - {{day.temp_max | number: '1.0-0' }}&#8451;)
-        </div>
+    <div class="forecast-row" *ngIf="weather.length; else EMPTY">
 
-    </ng-container>
+        <div class="forecast-day" *ngFor="let day of weather;">
+
+            <div class="forecast-day-date">
+                {{day.dt*1000 | date:'EEEE d/M'}}
+            </div>
+            <img [src]="'http://openweathermap.org/img/w/' + day.icon + '.png'" alt="{{day.description}}" />
+
+            <div class="forecast-day-temp">
+                <span> <strong>{{day.temp_max | number: '1.0-0' }}&#8451;</strong></span>
+                <span> {{day.temp_min | number: '1.0-0' }}&#8451;</span>
+            </div>
+
+        </div>
+    </div>
 
 </ng-container>
 
-<ng-template #LOADING>
-    Loading...
-</ng-template>
-
 <ng-template #EMPTY>
-    No Forecast 
+    No Forecast
 </ng-template>

@@ -1,6 +1,32 @@
-<p>weather-today works!</p>
-
 <div *ngIf="weather">
-    {{weather | json}}
-</div>
+    <div class="location">Amsterdam, NL</div>
+    <div class="description">
+        {{weather.description | titlecase }}
+    </div>
+    <div class="today">
 
+        <div class="column">
+            <img [src]="'http://openweathermap.org/img/wn/' + weather.icon + '@2x.png'" alt="{{weather.description}}" />
+        </div>
+        <div class="column">
+            <div class="temp">
+                <div class="temp-large">
+                    {{weather.temp | number: '1.0-0'}}
+                </div>
+                <div class="temp-normal">
+                    &#8451;
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="today-details">
+                <div>Wind {{weather.wind | number: '1.0-0'}} km/h</div>
+                <div>Min {{weather.temp_min | number: '1.0-0'}} &#8451;</div>
+                <div>Max {{weather.temp_min | number: '1.0-0'}} &#8451;</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

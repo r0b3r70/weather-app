@@ -84,4 +84,8 @@
     margin: 0 auto;
     border: 1px solid $accent-color;
     box-shadow: $box-shadow;
+
+    .main {
+        padding: 20px 0;
+    }
 }
