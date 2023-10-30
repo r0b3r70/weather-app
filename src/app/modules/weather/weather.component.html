@@ -32,5 +32,6 @@
             </div>
             <app-weather-forecast [weatherForecast]="weatherForecast$ | async"></app-weather-forecast>
 
+            <app-loader [isLoading]="loading$ | async"></app-loader>
         </div>
     </div>

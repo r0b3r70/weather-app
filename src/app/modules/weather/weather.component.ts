@@ -5,6 +5,7 @@ import {
     selectLocationList,
     selectWeatherCurrent,
     selectWeatherForecast,
+    selectWeatherLoading,
 } from 'src/app/state/weather';
 import { GeoLocation } from 'src/app/models';
 
@@ -18,6 +19,7 @@ export class WeatherComponent {
     public locationList$ = this.store.select(selectLocationList);
     public weatherCurrent$ = this.store.select(selectWeatherCurrent);
     public weatherForecast$ = this.store.select(selectWeatherForecast);
+    public loading$ = this.store.select(selectWeatherLoading);
 
     constructor(private readonly store: Store) {}
 

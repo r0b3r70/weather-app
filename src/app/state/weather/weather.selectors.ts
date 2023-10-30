@@ -18,3 +18,8 @@ export const selectWeatherForecast = createSelector(
     selectWeather,
     (state: WeatherState) => state.weather.forecast,
 );
+
+export const selectWeatherLoading = createSelector(
+    selectWeather,
+    (state: WeatherState) => state.status === 'loading',
+);
