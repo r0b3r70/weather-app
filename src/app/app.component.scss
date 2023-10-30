@@ -1,0 +1,36 @@
+@import 'variables';
+
+.wrapper {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-inline: 15px;
+    margin-inline: auto;
+
+    @media (min-width: $tablet) {
+        width: 750px;
+    }
+
+    @media (min-width: $desktop) {
+        width: 970px;
+    }
+
+    @media (min-width: $desktop-large) {
+        width: 1170px;
+    }
+  }
+
+/* ToDo: Move to a component */ 
+.header {
+  background: $secondary-bg-color;
+  color: $secondary-txt-color;
+  padding: 10px 20px;
+
+  h1 {
+    font: 500 20px Roboto, "Helvetica Neue", sans-serif;
+  }  
+}
+
+
