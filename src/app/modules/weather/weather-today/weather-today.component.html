@@ -1,5 +1,5 @@
 <div *ngIf="weather">
-    <div class="location">Amsterdam, NL</div>
+    <div class="location">{{weather.location}}, {{weather.country}}</div>
     <div class="description">
         {{weather.description | titlecase }}
     </div>

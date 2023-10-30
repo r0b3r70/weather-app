@@ -122,6 +122,8 @@ export const weatherReducer = createReducer(
 const mapToWeatherData = (response: CurrentWeatherAPIResponse): Partial<WeatherData> => {
     return {
         current: {
+            location: response.name,
+            country: response.sys.country,
             description: response.weather[0].description,
             temp: response.main.temp,
             temp_min: response.main.temp_min,
