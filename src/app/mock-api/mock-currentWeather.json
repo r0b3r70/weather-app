@@ -8,7 +8,7 @@
             "id": 500,
             "main": "Rain",
             "description": "light rain",
-            "icon": "10n"
+            "icon": "10d"
         }
     ],
     "base": "stations",

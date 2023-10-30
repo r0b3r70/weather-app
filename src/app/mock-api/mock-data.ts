@@ -330,7 +330,7 @@ export const getCurrentWeatherMock: CurrentWeatherAPIResponse = {
             id: 500,
             main: "Rain",
             description: "light rain",
-            icon: "10n"
+            icon: "10d"
         }
     ],
     base: "stations",
@@ -378,6 +378,7 @@ export const getWeatherStateMock: WeatherState = {
             temp_min: 9.38,
             temp_max: 10.6,
             wind: 5.14,
+            icon: '10d',
         },
         forecast: [
             {
@@ -387,6 +388,7 @@ export const getWeatherStateMock: WeatherState = {
                 temp_max: 11.27,
                 description: 'light rain',
                 wind: 4.37,
+                icon: '10d',
             },
             {
                 dt: 1698318000,
@@ -395,6 +397,7 @@ export const getWeatherStateMock: WeatherState = {
                 temp_max: 12.2,
                 description: 'moderate rain',
                 wind: 4.04,
+                icon: '10d',
             },
             {
                 dt: 1698404400,
@@ -403,6 +406,7 @@ export const getWeatherStateMock: WeatherState = {
                 temp_max: 11.07,
                 description: 'heavy intensity rain',
                 wind: 4.81,
+                icon: '10d',
             },
             {
                 dt: 1698490800,
@@ -411,6 +415,7 @@ export const getWeatherStateMock: WeatherState = {
                 temp_max: 11.64,
                 description: 'moderate rain',
                 wind: 7.67,
+                icon: '10d',
             },
             {
                 dt: 1698577200,
@@ -419,6 +424,7 @@ export const getWeatherStateMock: WeatherState = {
                 temp_max: 13.42,
                 description: 'moderate rain',
                 wind: 7.14,
+                icon: '10d',
             },
         ],
     },
