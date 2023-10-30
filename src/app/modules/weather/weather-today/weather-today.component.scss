@@ -1,6 +1,7 @@
 @import 'variables';
 
-.location, .description {
+.location,
+.description {
     font-family: $header-font-family;
 }
 
@@ -33,7 +34,6 @@
         display: inline-block;
     }
 }
-
 
 .today {
     display: flex;

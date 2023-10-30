@@ -24,7 +24,7 @@ export interface WeatherData {
 
 export interface WeatherDataCurrent {
     location: string; // name
-    country: string // country
+    country: string; // country
     description: string; // weather.description
     icon: string; // weather.icon
     temp: number; // main.temp
