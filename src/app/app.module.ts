@@ -7,23 +7,21 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { weatherReducer, WeatherEffects} from './state/weather';
+import { weatherReducer, WeatherEffects } from './state/weather';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    StoreModule.forRoot({weather: weatherReducer}, {}),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-    }),
-    EffectsModule.forRoot([WeatherEffects]),
-  ],
-  bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    declarations: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        StoreModule.forRoot({ weather: weatherReducer }, {}),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+        }),
+        EffectsModule.forRoot([WeatherEffects]),
+    ],
+    bootstrap: [AppComponent],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}

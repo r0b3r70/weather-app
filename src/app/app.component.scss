@@ -20,17 +20,18 @@
     @media (min-width: $desktop-large) {
         width: 1170px;
     }
-  }
-
-/* ToDo: Move to a component */ 
-.header {
-  background: $secondary-bg-color;
-  color: $secondary-txt-color;
-  padding: 10px 20px;
-
-  h1 {
-    font: 500 20px Roboto, "Helvetica Neue", sans-serif;
-  }  
 }
 
+/* ToDo: Move to a component */
+.header {
+    background: $secondary-bg-color;
+    color: $secondary-txt-color;
+    padding: 10px 20px;
 
+    h1 {
+        font:
+            500 20px Roboto,
+            'Helvetica Neue',
+            sans-serif;
+    }
+}

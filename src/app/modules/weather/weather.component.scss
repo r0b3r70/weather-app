@@ -21,9 +21,7 @@
     }
 }
 
-
 .select {
-
     &-list {
         position: absolute;
         border: 1px solid $accent-color;
@@ -45,7 +43,6 @@
                 }
             }
         }
-
     }
 }
 
@@ -77,9 +74,7 @@
         text-transform: uppercase;
         width: 180px;
     }
-
 }
-
 
 .weather-container {
     padding-top: 50px;

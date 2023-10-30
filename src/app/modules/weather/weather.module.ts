@@ -8,18 +8,9 @@ import { WeatherTodayComponent } from './weather-today/weather-today.component';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 import { FormsModule } from '@angular/forms';
 
-
 @NgModule({
-  declarations: [
-    WeatherComponent,
-    WeatherTodayComponent,
-    WeatherForecastComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    WeatherRoutingModule
-  ],
-  providers: [WeatherService],
+    declarations: [WeatherComponent, WeatherTodayComponent, WeatherForecastComponent],
+    imports: [CommonModule, FormsModule, WeatherRoutingModule],
+    providers: [WeatherService],
 })
-export class WeatherModule { }
+export class WeatherModule {}

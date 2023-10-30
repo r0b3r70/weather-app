@@ -67,7 +67,6 @@ export interface ForecastWeatherDayAPIResponse {
     rain: number;
 }
 
-
 export interface CurrentWeatherAPIResponse {
     coord: {
         lon: number;

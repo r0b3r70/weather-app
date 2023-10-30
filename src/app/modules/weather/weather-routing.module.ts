@@ -5,7 +5,7 @@ import { WeatherComponent } from './weather.component';
 const routes: Routes = [{ path: '', component: WeatherComponent }];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
 })
-export class WeatherRoutingModule { }
+export class WeatherRoutingModule {}
