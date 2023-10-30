@@ -1,6 +1,5 @@
 import { GeoAPIResponse } from './api.models';
 
-// make all properties optional
 export interface GeoLocation {
     name?: string;
     lat?: number;
@@ -25,7 +24,7 @@ export interface WeatherData {
 
 export interface WeatherDataCurrent {
     location: string; // name
-    country: string
+    country: string // country
     description: string; // weather.description
     icon: string; // weather.icon
     temp: number; // main.temp

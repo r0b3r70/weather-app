@@ -378,6 +378,8 @@ export const getWeatherStateMock: WeatherState = {
     locationList: [],
     weather: {
         current: {
+            location: 'Amsterdam',
+            country: 'NL',
             description: 'light rain',
             temp: 10.11,
             temp_min: 9.38,
