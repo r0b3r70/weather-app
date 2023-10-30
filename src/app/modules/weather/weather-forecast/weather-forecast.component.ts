@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { WeatherDataForecast } from 'src/app/models';
 
 @Component({
     selector: 'app-weather-forecast',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./weather-forecast.component.scss'],
 })
 export class WeatherForecastComponent {
-    @Input() weatherForecast: any;
+    @Input() weatherForecast?: WeatherDataForecast[] | null;
 }
