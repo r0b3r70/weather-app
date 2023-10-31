@@ -42,3 +42,12 @@ export interface WeatherDataForecast {
     icon: string; // weather.icon
     wind: number; // speed
 }
+
+export enum SortOrderType {
+    ASC = 'asc',
+    DESC = 'desc',
+}
+
+export interface sortOrder {
+    sortOrder: SortOrderType.ASC | SortOrderType.DESC;
+}

@@ -1,3 +1,5 @@
+@import 'variables';
+
 .forecast {
     &-row {
         margin: 50px 0 0 0;
@@ -20,4 +22,16 @@
             font-size: 12px;
         }
     }
+}
+
+.toggleSort {
+    margin: 25px 0;
+    background: $secondary-action-color;
+    border: none;
+    color: $primary-bg-color;
+    cursor: pointer;
+    height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100px;
 }

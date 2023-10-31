@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { WeatherDataForecast } from 'src/app/models';
+import { SortOrderType, WeatherDataForecast } from 'src/app/models';
 
 @Component({
     selector: 'app-weather-forecast',
@@ -8,4 +8,9 @@ import { WeatherDataForecast } from 'src/app/models';
 })
 export class WeatherForecastComponent {
     @Input() weatherForecast?: WeatherDataForecast[] | null;
+    public sortOrder: SortOrderType = SortOrderType.ASC;
+
+    public toggleSortOrder(): void {
+        this.sortOrder = this.sortOrder === SortOrderType.ASC ? SortOrderType.DESC : SortOrderType.ASC;
+    }
 }

@@ -8,9 +8,10 @@ import { WeatherTodayComponent } from './weather-today/weather-today.component';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
 
 @NgModule({
-    declarations: [WeatherComponent, WeatherTodayComponent, WeatherForecastComponent],
+    declarations: [WeatherComponent, WeatherTodayComponent, WeatherForecastComponent, OrderByPipe],
     imports: [CommonModule, FormsModule, WeatherRoutingModule, SharedModule],
     providers: [WeatherService],
 })
