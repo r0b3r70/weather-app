@@ -2,7 +2,7 @@
 
     <div class="forecast-row" *ngIf="weather.length; else EMPTY">
 
-        <div class="forecast-day" *ngFor="let day of weather | orderBy: {sortOrder}">
+        <div class="forecast-day" *ngFor="let day of weather | orderBy: sortOrder">
 
             <div class="forecast-day-date">
                 {{day.dt*1000 | date:'EEEE d/M'}}

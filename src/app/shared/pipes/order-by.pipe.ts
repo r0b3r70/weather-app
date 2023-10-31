@@ -5,14 +5,13 @@ import { WeatherDataForecast, SortOrderType } from 'src/app/models';
     name: 'orderBy',
 })
 export class OrderByPipe implements PipeTransform {
-    transform(value: WeatherDataForecast[], { sortOrder: sortOrder = SortOrderType.ASC } ): WeatherDataForecast[] {
+    transform(value: WeatherDataForecast[], order?: SortOrderType): WeatherDataForecast[] {
         return value.slice().sort((a, b) => {
-            if (sortOrder === SortOrderType.ASC) {
-                return a.dt - b.dt;
-            } else if (sortOrder === SortOrderType.DESC) {
+            if (order && order === SortOrderType.DESC) {
                 return b.dt - a.dt;
+            } else {
+                return a.dt - b.dt;
             }
-            return 1;
         });
     }
 }
