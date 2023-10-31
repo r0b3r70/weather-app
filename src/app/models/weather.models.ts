@@ -11,7 +11,7 @@ export interface GeoLocation {
 export interface WeatherState {
     locationSearch: string; // String from search input
     selectedLocation: GeoLocation; // One, mapped response from locationList[]
-    locationList: GeoAPIResponse[]; // API response from GeoDB with list of locations
+    locationList: GeoAPIResponse[] | null; // API response from GeoDB with list of locations
     weather: WeatherData; // Mapped data
     error: string; // error message from API
     status: 'idle' | 'loading' | 'error'; // status of API call

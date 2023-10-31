@@ -23,3 +23,8 @@ export const selectWeatherLoading = createSelector(
     selectWeather,
     (state: WeatherState) => state.status === 'loading',
 );
+
+export const selectWeatherError = createSelector(
+    selectWeather,
+    (state: WeatherState) => state.error,
+);

@@ -1,0 +1,11 @@
+.error {
+    background-color: #ffbaba;
+    border: 1px solid;
+    padding: 20px;
+    h3 {
+        margin-top: 0;
+    }
+    &-message {
+        color: #d8000c;
+    }
+}

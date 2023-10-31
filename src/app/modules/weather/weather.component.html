@@ -11,20 +11,24 @@
                 <button (click)="searchLocation()" type="submit" class="search-button">Search</button>
 
                 <ng-container *ngIf="locationList$ | async as locations">
-                    <div class="select-list" *ngIf="locations.length">
+                    <div class="select-list" *ngIf="locations.length >= 1; else EMPTY">
                         <div class="select-list-option" id="results" *ngFor="let location of locations">
                             <button (click)="setLocation({lat: location.lat, lon: location.lon})">
                                 {{location.name}}, {{location.state}} - {{location.country}}
                             </button>
                         </div>
                     </div>
+                    <ng-template #EMPTY>
+                        <div class="select-list-empty">
+                            No results found
+                        </div>
+                    </ng-template>
                 </ng-container>
             </form>
 
             <div class="row main">
                 <div class="column">
                     <app-weather-today [weather]="weatherCurrent$ | async"></app-weather-today>
-
                 </div>
                 <div class="column">
                     &nbsp;
@@ -33,5 +37,7 @@
             <app-weather-forecast [weatherForecast]="weatherForecast$ | async"></app-weather-forecast>
 
             <app-loader [isLoading]="loading$ | async"></app-loader>
+
+            <app-error [error]="error$ | async"></app-error>
         </div>
     </div>

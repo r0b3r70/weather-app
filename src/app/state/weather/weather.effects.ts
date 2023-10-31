@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { catchError, exhaustMap, map } from 'rxjs/operators';
 import { WeatherService } from 'src/app/modules/weather/weather.service';
 import { LocationActions, WeatherActions } from './weather.actions';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class WeatherEffects {
@@ -13,7 +14,9 @@ export class WeatherEffects {
             exhaustMap((action) =>
                 this.weatherService.getGeoLocation$(action.name).pipe(
                     map((response) => LocationActions.searchRequestSuccess({ response })),
-                    catchError((error) => of(LocationActions.searchRequestFailure({ error }))),
+                    catchError((error: HttpErrorResponse) =>
+                        of(LocationActions.searchRequestFailure({ error: error.statusText })),
+                    ),
                 ),
             ),
         );
@@ -44,8 +47,8 @@ export class WeatherEffects {
             exhaustMap((action) =>
                 this.weatherService.getCurrentWeatherByLocation$(action.location).pipe(
                     map((response) => WeatherActions.currentWeatherRequestSuccess({ response })),
-                    catchError((error) =>
-                        of(WeatherActions.currentWeatherRequestFailure({ error })),
+                    catchError((error: HttpErrorResponse) =>
+                        of(LocationActions.searchRequestFailure({ error: error.statusText })),
                     ),
                 ),
             ),
@@ -58,8 +61,8 @@ export class WeatherEffects {
             exhaustMap((action) =>
                 this.weatherService.getForecastByLocation$(action.location).pipe(
                     map((response) => WeatherActions.forecastWeatherRequestSuccess({ response })),
-                    catchError((error) =>
-                        of(WeatherActions.currentWeatherRequestFailure({ error })),
+                    catchError((error: HttpErrorResponse) =>
+                        of(LocationActions.searchRequestFailure({ error: error.statusText })),
                     ),
                 ),
             ),

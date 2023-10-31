@@ -14,7 +14,7 @@ export const weatherFeatureKey = 'weather';
 export const initialState: WeatherState = {
     locationSearch: '',
     selectedLocation: {},
-    locationList: [],
+    locationList: null,
     weather: {},
     error: '',
     status: 'idle',
