@@ -1,0 +1,26 @@
+@import 'variables';
+
+.select {
+    &-list {
+        position: absolute;
+        border: 1px solid $accent-color;
+        box-shadow: $box-shadow;
+        width: 300px;
+
+        &-option {
+            button {
+                background: $primary-bg-color;
+                border: none;
+                cursor: pointer;
+                padding: 5px 10px;
+                text-align: left;
+                width: 100%;
+                font-size: 18px;
+
+                &:hover {
+                    background: $secondary-action-hover-color;
+                }
+            }
+        }
+    }
+}

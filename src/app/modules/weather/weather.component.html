@@ -4,26 +4,15 @@
         <div class="search-container">
 
             <form class="search-form">
-
+                <!-- ToDo: move to a reusable component -->
                 <input type="search" placeholder="City, Country" aria-label="Search" list="results" name="location"
                     [(ngModel)]="locationSearch">
-
+                
+                <!-- ToDo: move to a reusable component -->
                 <button (click)="searchLocation()" type="submit" class="search-button">Search</button>
 
-                <ng-container *ngIf="locationList$ | async as locations">
-                    <div class="select-list" *ngIf="locations.length >= 1; else EMPTY">
-                        <div class="select-list-option" id="results" *ngFor="let location of locations">
-                            <button (click)="setLocation({lat: location.lat, lon: location.lon})">
-                                {{location.name}}, {{location.state}} - {{location.country}}
-                            </button>
-                        </div>
-                    </div>
-                    <ng-template #EMPTY>
-                        <div class="select-list-empty">
-                            No results found
-                        </div>
-                    </ng-template>
-                </ng-container>
+                <app-dropdown-list [list]="locationList$ | async" (selected)="setLocation($event)">
+                </app-dropdown-list>
             </form>
 
             <div class="row main">

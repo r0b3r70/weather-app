@@ -1,0 +1,14 @@
+<ng-container *ngIf="list">
+    <div class="select-list" *ngIf="list.length >= 1; else EMPTY">
+        <div class="select-list-option" id="results" *ngFor="let item of list">
+            <button (click)="select({lat: item.lat, lon: item.lon})">
+                {{item.name}} {{item?.state}} - {{item.country}}
+            </button>
+        </div>
+    </div>
+    <ng-template #EMPTY>
+        <div class="select-list-empty">
+            No results found
+        </div>
+    </ng-template>
+</ng-container>
