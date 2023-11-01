@@ -49,7 +49,9 @@ describe('WeatherComponent', () => {
         component.locationSearch = 'Amsterdam';
         component.searchLocation();
 
-        expect(dispatchSpy).toHaveBeenCalledWith(LocationActions.searchRequested({ name: 'Amsterdam' }));
+        expect(dispatchSpy).toHaveBeenCalledWith(
+            LocationActions.searchRequested({ name: 'Amsterdam' }),
+        );
     });
 
     it('should set selected location', () => {
@@ -58,8 +60,8 @@ describe('WeatherComponent', () => {
         component.locationSearch = 'Amsterdam';
         component.setLocation({ lat: 52.3727598, lon: 4.8936041 });
 
-        expect(dispatchSpy).toHaveBeenCalledWith(LocationActions.selected({ selectedLocation: { lat: 52.3727598, lon: 4.8936041 } }));
+        expect(dispatchSpy).toHaveBeenCalledWith(
+            LocationActions.selected({ selectedLocation: { lat: 52.3727598, lon: 4.8936041 } }),
+        );
     });
-
-
 });

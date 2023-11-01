@@ -15,14 +15,12 @@ describe('WeatherForecastComponent', () => {
         component = fixture.componentInstance;
         fixture.detectChanges();
     });
-    
+
     it('should toggle sort order', () => {
-        component.sortOrder =  SortOrderType.ASC;
+        component.sortOrder = SortOrderType.ASC;
         component.toggleSortOrder();
         expect(component.sortOrder).toEqual(SortOrderType.DESC);
         component.toggleSortOrder();
-        expect(component.sortOrder).toEqual(SortOrderType.ASC);        
+        expect(component.sortOrder).toEqual(SortOrderType.ASC);
     });
-
-
 });

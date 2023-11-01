@@ -11,6 +11,7 @@ export class WeatherForecastComponent {
     public sortOrder: SortOrderType = SortOrderType.ASC;
 
     public toggleSortOrder(): void {
-        this.sortOrder = this.sortOrder === SortOrderType.ASC ? SortOrderType.DESC : SortOrderType.ASC;
+        this.sortOrder =
+            this.sortOrder === SortOrderType.ASC ? SortOrderType.DESC : SortOrderType.ASC;
     }
 }

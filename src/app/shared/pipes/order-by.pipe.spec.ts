@@ -64,7 +64,7 @@ const mockForecastDESC = [
 describe('OrderByPipe', () => {
     it('should sort the array in ascending order', () => {
         const pipe = new OrderByPipe();
-        const result = pipe.transform(mockForecast, SortOrderType.ASC );
+        const result = pipe.transform(mockForecast, SortOrderType.ASC);
         expect(result).toEqual(mockForecast);
     });
 

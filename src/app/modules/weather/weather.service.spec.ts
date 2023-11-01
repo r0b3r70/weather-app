@@ -4,7 +4,11 @@ import { environment } from 'src/environments/environment';
 
 import { WeatherService } from './weather.service';
 import { GeoAPIResponse } from 'src/app/models';
-import { getCurrentWeatherMock, getForecastWeatherMock, getGeoLocationMock } from 'src/app/mock-api/mock-data';
+import {
+    getCurrentWeatherMock,
+    getForecastWeatherMock,
+    getGeoLocationMock,
+} from 'src/app/mock-api/mock-data';
 
 describe('WeatherService GeoLocation ', () => {
     const arrange = () => {
@@ -68,7 +72,6 @@ describe('WeatherService GeoLocation ', () => {
     });
 
     it('should return an observable of ForecastWeatherAPIResponse', () => {
-
         const location = {
             lon: 4.8936,
             lat: 52.3728,
@@ -86,4 +89,3 @@ describe('WeatherService GeoLocation ', () => {
         httpTestingController.verify();
     });
 });
-
