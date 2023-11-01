@@ -12,9 +12,7 @@ export const LocationActions = createActionGroup({
         'Search Requested': props<{ name: string }>(),
         'Search Request Success': props<{ response: GeoAPIResponse[] }>(),
         'Search Request Failure': props<{ error: string }>(),
-
-        Selected: props<{ selectedLocation: GeoLocation }>(),
-        Clear: emptyProps(),
+        'Selected': props<{ selectedLocation: GeoLocation }>(),
     },
 });
 

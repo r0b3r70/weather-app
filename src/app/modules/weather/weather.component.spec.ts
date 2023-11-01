@@ -8,6 +8,7 @@ import { getGeoLocationMock } from 'src/app/mock-api/mock-data';
 import { of } from 'rxjs';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { LocationActions } from 'src/app/state/weather';
 
 describe('WeatherComponent', () => {
     let component: WeatherComponent;
@@ -42,9 +43,23 @@ describe('WeatherComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        store.setState({ loggedIn: true });
+    it('should search location', () => {
+        const dispatchSpy = spyOn(store, 'dispatch').and.callThrough();
 
-        expect(component).toBeTruthy();
+        component.locationSearch = 'Amsterdam';
+        component.searchLocation();
+
+        expect(dispatchSpy).toHaveBeenCalledWith(LocationActions.searchRequested({ name: 'Amsterdam' }));
     });
+
+    it('should set selected location', () => {
+        const dispatchSpy = spyOn(store, 'dispatch').and.callThrough();
+
+        component.locationSearch = 'Amsterdam';
+        component.setLocation({ lat: 52.3727598, lon: 4.8936041 });
+
+        expect(dispatchSpy).toHaveBeenCalledWith(LocationActions.selected({ selectedLocation: { lat: 52.3727598, lon: 4.8936041 } }));
+    });
+
+
 });
