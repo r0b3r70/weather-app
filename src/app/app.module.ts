@@ -19,7 +19,7 @@ import { ErrorsHandler } from './core/errors-handler';
         StoreModule.forRoot({ weather: weatherReducer }, {}),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
-        }),
+        connectInZone: true}),
         EffectsModule.forRoot([WeatherEffects]),
     ],
     bootstrap: [AppComponent],
